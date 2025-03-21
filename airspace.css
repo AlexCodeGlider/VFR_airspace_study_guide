@@ -9,8 +9,19 @@
 }
 
 /* Highlight on hover */
-.highlight-area:hover {
-  outline: 2px solid red;
+.highlight-area {
+    position: absolute;
+    /* Example: 10% from top, 20% from left; adjust as needed */
+    top: 10%;
+    left: 20%;
+    width: 5%;
+    height: auto;
+    cursor: pointer;
+  }
+
+.info-icon {
+width: 20px; /* Adjust size as needed */
+height: 20px; /* Adjust size as needed */
 }
 
 /* Tooltip styling */
