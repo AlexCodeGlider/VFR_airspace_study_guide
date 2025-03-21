@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>VFR Airspace Study Guide</title>
+  <link rel="stylesheet" href="airspace.css">
+</head>
+<body>
+  <button id="toggleButton">Switch to Nighttime</button>
+  
+  <div class="image-container">
+    <!-- Daytime image by default -->
+    <img id="airspaceImage" src="daytime.png" alt="Daytime Airspace Guide">
+    
+    <!-- Example highlight area -->
+    <div class="highlight-area" style="position:absolute; top:50px; left:100px; width:50px; height:50px;">
+      <img src="info-icon.png" style="cursor:pointer;" onclick="showTooltip(event, 'tooltip1')">
+    </div>
+
+    <!-- Tooltip example -->
+    <div id="tooltip1" class="tooltip" style="top:120px; left:100px;">
+      Daytime airspace info goes here.
+    </div>
+  </div>
+
+  <script>
+    const toggleButton = document.getElementById('toggleButton');
+    const airspaceImage = document.getElementById('airspaceImage');
+    let isDaytime = true;
+
+    toggleButton.addEventListener('click', () => {
+      if(isDaytime){
+        airspaceImage.src = "nighttime.png";
+        toggleButton.textContent = "Switch to Daytime";
+      } else {
+        airspaceImage.src = "daytime.png";
+        toggleButton.textContent = "Switch to Nighttime";
+      }
+      isDaytime = !isDaytime;
+    });
+
+    function showTooltip(event, tooltipId) {
+      event.stopPropagation();
+      const tooltipEl = document.getElementById(tooltipId);
+      tooltipEl.style.display = tooltipEl.style.display === 'block' ? 'none' : 'block';
+    }
+
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.tooltip').forEach(tooltip => { 
+        tooltip.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>

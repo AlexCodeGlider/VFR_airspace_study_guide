@@ -1,0 +1,23 @@
+.image-container {
+  position: relative;
+  max-width: 100%;
+}
+
+#airspaceImage {
+  width: 100%;
+  height: auto;
+}
+
+/* Highlight on hover */
+.highlight-area:hover {
+  outline: 2px solid red;
+}
+
+/* Tooltip styling */
+.tooltip {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
